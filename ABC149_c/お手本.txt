@@ -1,0 +1,12 @@
+x = int(input())
+
+for i in range(x,10**6):
+  for j in range(2,x):
+    if i % j == 0:
+      break
+      
+  else:  このエルスがあることで、上のfor文がbrakeで処理を抜けたときに、もう一度for文range(2,x)を回すようになる。このエルスがないパターンを試したら、上のfor文を抜けた後、すぐprint(i)を実行してしまう。それじゃ意味なし。
+    print(i)
+    break
+    
+  

@@ -1,0 +1,21 @@
+自力で解けたけど。
+
+
+
+n, x = map(int,input().split())
+a = list(map(int,input().split()))
+a.sort()
+
+
+
+for i in range(len(a)):
+  x = x - a[i]		 x -= a[I] これでもいける。
+  #print(x)
+  if x <= 0:
+    break
+  
+  
+if x == 0:
+  print(i+1)
+else:
+  print(i)

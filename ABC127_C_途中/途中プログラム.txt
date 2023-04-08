@@ -1,0 +1,28 @@
+n, m = map(int,input().split())
+#print(n)
+min_list = []
+max_list = []
+ans_list = list(range(1,n+1))
+#print(ans_list)
+for i in range(m):
+  syou, dai = map(int,input().split())
+  min_list.append(syou)
+  max_list.append(dai)
+  
+#print(min_list)
+saisyou = max(min_list)
+#print(saisyou)
+saidai = min(max_list)
+hani_list = list(range(saisyou,saidai+1))
+#print(hani_list)
+#print(saidai)
+last_list = []
+for i in range(len(hani_list)):
+  if hani_list[i] in ans_list:
+    last_list.append(hani_list[i])
+    
+print(len(last_list))
+    
+
+  
+#print(

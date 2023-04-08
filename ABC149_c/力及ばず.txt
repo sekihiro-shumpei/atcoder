@@ -1,0 +1,30 @@
+x = int(input())
+
+
+for i in range(2,x):
+  if x % i == 0:
+    x += 1
+    i = 2
+   
+
+print(x)   
+    
+
+
+
+x = int(input())
+
+y = 2
+z = 2
+ans = []
+while x < 10**6:
+  for i in range(z,x):
+    if x % i == 0:
+      x += 1
+      z = 2
+    else:
+      ans.append(x)
+    
+    
+print(min(ans))   
+    
