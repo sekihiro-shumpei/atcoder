@@ -1,0 +1,31 @@
+# 入力の読み込み
+N = int(input())
+intervals = []
+
+for _ in range(N):
+    l, r = map(float, input().split())
+    intervals.append((l, r))
+
+# イベントリストの作成
+events = []
+for l, r in intervals:
+    events.append((l, 'start'))  # 区間の開始
+    events.append((r, 'end'))    # 区間の終了
+
+# イベントを時間順にソート
+# 同じ時間の場合は終了イベントを先に処理する
+# イベントの種類が同じ場合は開始イベントを先に処理する
+events.sort(key=lambda x: (x[0], x[1] == 'end'))
+
+# 共通部分を持つ区間のペアを数える
+count = 0
+active_intervals = 0
+
+for time, event_type in events:
+    if event_type == 'start':  # 区間の開始
+        count += active_intervals  # 現在アクティブな区間と重なる
+        active_intervals += 1
+    else:  # 区間の終了
+        active_intervals -= 1
+
+print(count)

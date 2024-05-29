@@ -1,0 +1,10 @@
+X = int(input())
+
+ans = 100
+cnt = 0
+while ans < X:
+  ans *= 1.01
+  ans = int(ans)
+  cnt += 1
+  
+print(cnt)

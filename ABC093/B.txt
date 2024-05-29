@@ -1,0 +1,15 @@
+A, B, K = map(int, input().split())
+
+ans = set()
+for i in range(K):
+  if A <= A+i <= B:
+    ans.add(A+i)
+  if A <= B-i <= B:
+    ans.add(B-i)
+  
+ans = sorted(ans)
+#print(*ans)
+for j in ans:
+  print(j)
+  
+  

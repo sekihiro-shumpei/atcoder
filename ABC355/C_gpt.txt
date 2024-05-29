@@ -1,0 +1,56 @@
+# 入力の読み込み
+N, T = map(int, input().split())
+A = list(map(int, input().split()))
+
+# グリッドの初期化と数値の位置マップの作成
+grid = []
+num_to_pos = {}
+for i in range(1, N + 1):
+    row = []
+    for j in range(1, N + 1):
+        num = N * (i - 1) + j
+        row.append(num)
+        num_to_pos[num] = (i - 1, j - 1)
+    grid.append(row)
+
+# 行、列、対角線のカウントを初期化
+row_count = [0] * N
+col_count = [0] * N
+diag1_count = 0
+diag2_count = 0
+
+# 印をつけたかどうかのフラグ
+marked = [[False] * N for _ in range(N)]
+
+# ビンゴ達成ターンの確認
+def check_bingo():
+    for count in row_count:
+        if count == N:
+            return True
+    for count in col_count:
+        if count == N:
+            return True
+    if diag1_count == N or diag2_count == N:
+        return True
+    return False
+
+# 宣言された数値に対応するマスに印をつける
+for turn in range(T):
+    num = A[turn]
+    if num in num_to_pos:
+        i, j = num_to_pos[num]
+        if not marked[i][j]:
+            marked[i][j] = True
+            row_count[i] += 1
+            col_count[j] += 1
+            if i == j:
+                diag1_count += 1
+            if i + j == N - 1:
+                diag2_count += 1
+
+    # ビンゴ達成の確認
+    if check_bingo():
+        print(turn + 1)
+        break
+else:
+    print(-1)
