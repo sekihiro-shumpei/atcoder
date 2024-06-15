@@ -1,0 +1,12 @@
+N = int(input())
+
+cnt = 0
+cnt2 = 0
+syou = 1
+ans = 0
+for i in range(8):
+  if 2**i > N:
+    break
+    
+print(2**(i-1))
+  

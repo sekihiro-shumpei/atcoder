@@ -1,0 +1,6 @@
+S = str(input())
+
+if S[0]=='A' and S[2:-1].count("C") == 1 and all(char.lower() == char or char in ['A', 'C'] for char in S):
+  print("AC")
+else:
+  print("WA")
