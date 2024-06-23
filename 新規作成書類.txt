@@ -1,0 +1,12 @@
+Sx, Sy = map(int, input().split())
+Tx, Ty = map(int, input().split())
+
+x = abs(Tx - Sx)
+y = abs(Ty - Sy)
+
+#print(x)
+#print(y)
+#ans = (x//2) + y
+ans =  y
+
+print(ans)

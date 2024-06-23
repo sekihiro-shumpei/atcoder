@@ -1,0 +1,29 @@
+N, M = map(int, input().split())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+
+A.sort()
+B.sort()
+
+now = 0
+ans = 0
+
+for b in B:
+  if now == N:
+    print(-1)
+    exit()
+  
+  while True:
+    if A[now] >= b:
+      break
+    else:
+      now += 1
+      
+      if now==N:
+        print(-1)
+        exit()
+        
+  ans += A[now]
+  now += 1
+    
+print(ans)
