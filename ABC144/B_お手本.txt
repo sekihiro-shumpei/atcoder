@@ -1,0 +1,22 @@
+import math
+
+N, D = map(int, input().split())
+
+l = []
+for i in range(N):
+  data = list(map(int, input().split()))
+  l.append(data)
+  
+def dist(a,b):
+  cnt = 0
+  for i in range(len(a)):
+    cnt += (a[i]-b[i])**2
+  return math.sqrt(cnt)
+  
+ans = 0
+for i in range(N):
+  for j in range(i+1, N):
+    if dist(l[i], l[j])%1 == 0:
+      ans += 1
+      
+print(ans)
