@@ -1,12 +1,73 @@
-Sx, Sy = map(int, input().split())
-Tx, Ty = map(int, input().split())
+S = input().strip()
+T = input().strip()
 
-x = abs(Tx - Sx)
-y = abs(Ty - Sy)
+for i in range(len(T)):
+  S.find(T[i])
 
-#print(x)
-#print(y)
-#ans = (x//2) + y
-ans =  y
 
-print(ans)
+
+S, T = map(str,input().split())
+
+
+ans = []
+for i in range(len(T)):
+  a = S.find(T[i])
+  #ans.append(S.find(T[i]))
+  print(a)
+  
+#print(ans)
+
+ーーーーーーーーーーーーーーーーーーーーーーーー
+Atcoder B
+def check_conditions(S, T):
+    len_s = len(S)
+    len_t = len(T)
+    
+    # 1 ≤ c ≤ w < |S| のすべての組み合わせを試す
+    for w in range(1, len_s):
+        for c in range(1, w + 1):
+            concatenated = []
+            for i in range(0, len_s, w):
+                if i + c <= len_s:
+                    concatenated.append(S[i + c - 1])
+            if ''.join(concatenated)[:len_t] == T:
+                return True
+    
+    return False
+
+# 入力
+S, T = input().split()
+
+# 判定と結果の出力
+if check_conditions(S, T):
+    print("Yes")
+else:
+    print("No")
+
+
+ーーーーーーーーーーーーーーーーーーーーーーー
+B我流
+S, T = map(str,input().split())
+
+
+ans = []
+for i in range(len(T)):
+  a = S.find(T[i])
+  #ans.append(S.find(T[i]))
+  ans.append(a)
+  
+#print(ans)
+if len(ans) == 1:
+  print("No")
+  exit()
+
+dif = int(ans[1]) - int(ans[0])
+#print(dif)
+
+for i in range(1, len(ans)-1):
+  if ans[i+1] - ans[i] != dif:
+    print("No")
+    exit()
+    
+print("Yes")
+
